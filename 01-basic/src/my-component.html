@@ -1,0 +1,22 @@
+<style>
+button {
+	appearance: none;
+	display: inline-block;
+	background: none;
+	border: 3px solid blue;
+	padding: 5px;
+}
+</style>
+<template>
+	<button on:click={ #count++ }>Click me</button>
+	<p>Clicked { #count } { #count !== 1 ? 'times' : 'time' }</p>
+</template>
+<script>
+export function state() {
+	return { count: 0 }
+}
+
+export function didMount(component) {
+	console.log('Mounted component', component.nodeName);
+}
+</script>
