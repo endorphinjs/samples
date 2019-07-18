@@ -4,21 +4,30 @@ import endorphin from '@endorphinjs/rollup-plugin-endorphin';
 import sass from 'sass';
 import autoprefixer from 'autoprefixer';
 import postcss from 'postcss';
-import typescript from 'rollup-plugin-typescript';
+import typescript from 'rollup-plugin-typescript2';
 import nodeResolve from 'rollup-plugin-node-resolve';
 import { sync as mkdirp } from 'mkdirp';
 
 export default {
 	input: './src/app.ts',
 	plugins: [
-		nodeResolve(), 
-		typescript(),
+		nodeResolve(),
+		typescript({
+			tsconfigOverride: {
+				compilerOptions: { module: 'esnext' }
+			},
+
+			// These options are required as a workaround of
+			// https://github.com/ezolenko/rollup-plugin-typescript2/issues/105
+			objectHashIgnoreUnknownHack: true,
+			clean: true,
+		}),
 		endorphin({
 			css: {
 				preprocess(type, data, file) {
 					// Detect stylesheet type: CSS, SCSS etc.
 					// Detect it either from `type` argument (a `type="..." attribute
-					// value of tag that contains stylesheet) or from file name 
+					// value of tag that contains stylesheet) or from file name
 					// (for external stylesheets)
 					if (type === 'scss' || (file && file.endsWith('.scss'))) {
 						return sass.renderSync({
