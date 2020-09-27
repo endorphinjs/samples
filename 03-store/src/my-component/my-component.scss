@@ -1,0 +1,14 @@
+$main-color: blue;
+$hover-color: red;
+
+button {
+	appearance: none;
+	display: inline-block;
+	background: none;
+	border: 3px solid $main-color;
+	padding: 5px;
+
+	&:hover {
+		border-color: $hover-color;
+	}
+}
