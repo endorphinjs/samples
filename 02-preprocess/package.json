@@ -16,7 +16,7 @@
     "autoprefixer": "^9.6.1",
     "endorphin": "^0.5.2",
     "mkdirp": "^0.5.1",
-    "postcss": "^7.0.17",
+    "postcss": "^7.0.36",
     "rollup": "^1.17.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-typescript2": "^0.22.0",
