@@ -1,0 +1,37 @@
+{
+    "linterOptions": {
+        "exclude": [
+            "**/*.json",
+            "**/*.html"
+        ]
+    },
+    "extends": [
+        "tslint:recommended"
+    ],
+    "rules": {
+        "max-line-length": {
+            "options": [
+                120
+            ]
+        },
+        "no-console": false,
+        "trailing-comma": false,
+        "quotemark": [
+            true,
+            "single",
+            "avoid-escape"
+        ],
+        "arrow-parens": false,
+        "no-trailing-whitespace": false,
+        "object-literal-sort-keys": false,
+        "interface-over-type-literal": false,
+        "ordered-imports": false
+    },
+    "jsRules": {
+        "max-line-length": {
+            "options": [
+                120
+            ]
+        }
+    }
+}
